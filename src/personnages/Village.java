@@ -29,8 +29,8 @@ public class Village {
     public void afficherVillageois() {
         System.out.println("Dans village du chef " + chef + " vivent les légendaires gaulois :");
         for (int i=0;i<nbVillageois;i++) {
-            String nom = getNom(villageois[i]);
-            System.out.println("- " + villageois[i]);
+            String nom = villageois[i].getNom();
+            System.out.println("- " + nom);
         }
     }
 
@@ -42,9 +42,12 @@ public class Village {
         village.setChef(abraracourcix);
         Gaulois asterix = new Gaulois("Astérix", 8);
         village.ajouterHabitant(asterix);
+        Gaulois obelix = new Gaulois("Obélix", 25);
+        village.ajouterHabitant(obelix);
         // Gaulois gaulois = village.trouverHabitant(1);
         // System.out.println(gaulois); // on obtient "null"
         // On obtient ce résultat, car il n'y aucun villageois à l'indice 1 du tableau villageois
         village.afficherVillageois();
+
     }
 }
