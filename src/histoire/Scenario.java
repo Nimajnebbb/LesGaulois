@@ -20,5 +20,6 @@ public class Scenario {
 		asterix.frapper(minus);
 		asterix.frapper(minus);
 		asterix.frapper(minus);
+		System.out.println("Erreur : force négative");
 	}
 }

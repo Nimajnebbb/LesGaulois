@@ -35,7 +35,7 @@ public class Druide {
 		if (forcePotion > 7) { 
 			druide.parler("J'ai préparé une super potion de force "+forcePotion);
 		} else { 
-			druide.parler("Je n'ai pas trouvé tous les ingr�dients, ma potion est seulement de force "+forcePotion);
+			druide.parler("Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force "+forcePotion);
 		}
 	}
 
