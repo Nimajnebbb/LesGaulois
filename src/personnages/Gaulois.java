@@ -50,6 +50,15 @@ public class Gaulois {
 		effetPotion = forcePotion;
 		parler(" Merci Druide, je sens que ma force est "+ forcePotion +" fois décuplée.");
 	}
+	
+	public void faireUneDonation(Musee musee) {
+		String texte = "";
+		for (Equipement trophees : Equipement.values()) {
+			texte += "\n- " + trophees;
+			musee.donnerTrophee(this,trophees);
+		}
+		parler("Je donne au musee tous mes trophees :" + texte);
+	}
 
 	public static void main(String[] args) {
 		// Gaulois asterix = new Gaulois("Astérix", 4);
