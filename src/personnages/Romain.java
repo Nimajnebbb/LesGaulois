@@ -24,8 +24,8 @@ public class Romain {
 	}
 
 
-//	public void recevoirCoup(int forceCoup, Romain romain) {
-//		assert romain.force>=0;
+//	public void recevoirCoup(int forceCoup) {
+//		assert force>=0;
 //		int temp = force;
 //		force -= forceCoup;
 //		if (force > 0) {
@@ -40,23 +40,23 @@ public class Romain {
 		return force;
 	}
 	
-	public void sEquiper(Equipement equipement, Romain romain) {
+	public void sEquiper(Equipement equipements) {
 		switch (nbEquipement) {
 			case 2 :
-				System.out.println("Le soldat " + romain.nom + " est d�j� bien prot�g� !");
+				System.out.println("Le soldat " + nom + " est déjà bien protégé !");
 				break;
 			case 1:
-				if (romain.equipement[0] == equipement) {
-					System.out.println("Le soldat " + romain.nom + " poss�de d�j� un " + equipement +" !");
+				if (equipement[0] == equipements) {
+					System.out.println("Le soldat " + nom + " possède déjà un " + equipements +" !");
 				} else {
-					romain.equipement[1] = equipement;
-					System.out.println("Le soldat " + romain.nom + " s'�quipe avec un " + equipement +".");
+					equipement[1] = equipements;
+					System.out.println("Le soldat " + nom + " s'équipe avec un " + equipements +".");
 					nbEquipement += 1;
 				}
 				break;
 			default :
-				romain.equipement[0] = equipement;
-				System.out.println("Le soldat " + romain.nom + " s'�quipe avec un " + equipement +".");
+				equipement[0] = equipements;
+				System.out.println("Le soldat " + nom + " s'équipe avec un " + equipements +".");
 				nbEquipement += 1;
 		}
 	}
@@ -71,13 +71,13 @@ public class Romain {
 		
 		force -= forceCoup;
 //		if (force > 0) {
-//			parler("A�e");
+//			parler("Aïe");
 //		} else {
 //			equipementEjecte = ejecterEquipement();
 //			parler("J'abandonne...");
 //		}
 		if (force == 0) {
-			parler("A�e");
+			parler("Aïe");
 		} else {
 			equipementEjecte = ejecterEquipement();
 			parler("J'abandonne...");
@@ -94,11 +94,11 @@ public class Romain {
 		if (nbEquipement != 0) {
 			texte += "\nMais heureusement, grace � mon �quipement sa force est diminu� de ";
 			for (int i = 0; i < nbEquipement;i++) {
-				if ((equipements[i] != null && equipements[i].equals(Equipement.BOUCLIER))) {
-					resistanceEquipement += 8;
+				if ((equipement[i] != null && equipement[i].equals(Equipement.BOUCLIER))) {
+					resistanceEquipement = 8;
 				} else {
 					System.out.println("Equipement casque");
-					resistanceEquipement += 5;
+					resistanceEquipement = 5;
 				}
 		}
 		texte += resistanceEquipement + "!";
@@ -113,10 +113,10 @@ public class Romain {
 		System.out.println("L'�quipement de " + nom + "s'envole sous la force du coup.");
 		int nbEquipementEjecte = 0;
 		for (int i = 0; i < nbEquipement; i++) {
-			if (equipements[i] == null) {
-				equipementEjecte[nbEquipementEjecte] = equipements[i];
+			if (equipement[i] == null) {
+				equipementEjecte[nbEquipementEjecte] = equipement[i];
 				nbEquipementEjecte++;
-				equipements[i] = null;
+				equipement[i] = null;
 			}
 		}
 		return equipementEjecte;
@@ -129,9 +129,9 @@ public class Romain {
 		assert minus.force>=0;
 		System.out.println(Equipement.CASQUE);
 		System.out.println(Equipement.BOUCLIER);
-		minus.sEquiper(Equipement.CASQUE,minus);
-		minus.sEquiper(Equipement.CASQUE,minus);
-		minus.sEquiper(Equipement.BOUCLIER,minus);
-		minus.sEquiper(Equipement.BOUCLIER,minus);
+		minus.sEquiper(Equipement.CASQUE);
+		minus.sEquiper(Equipement.CASQUE);
+		minus.sEquiper(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.BOUCLIER);
 	}
 }

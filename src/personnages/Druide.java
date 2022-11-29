@@ -27,24 +27,24 @@ public class Druide {
 		return "Le druide " + nom + " : ";
 	}
 	
-	public void preparerPotion(Druide druide) {
+	public void preparerPotion() {
 		Random random = new Random();
 		while (forcePotion < 5) {
 			forcePotion = random.nextInt(effetPotionMax);
 		}
 		if (forcePotion > 7) { 
-			druide.parler("J'ai préparé une super potion de force "+forcePotion);
+			parler("J'ai préparé une super potion de force "+forcePotion);
 		} else { 
-			druide.parler("Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force "+forcePotion);
+			parler("Je n'ai pas trouvé tous les ingrédients, ma potion est seulement de force "+forcePotion);
 		}
 	}
 
-	public void booster(Druide druide,Gaulois gaulois) {
+	public void booster(Gaulois gaulois) {
 		if (gaulois.getNom() == "Obélix") {
-			druide.parler("Non, Obélix !... Tu n’auras pas de potion magique ! ");
+			parler("Non, Obélix !... Tu n’auras pas de potion magique ! ");
 			gaulois.parler("Par Bélénos, ce n'est pas juste !");
 		} else {
-		gaulois.boirePotion(gaulois,forcePotion);
+		gaulois.boirePotion(forcePotion);
 		}
 	}
 	
